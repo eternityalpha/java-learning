@@ -1,0 +1,40 @@
+package select;
+
+import java.util.Scanner;
+
+public class ifelse
+{
+	public static void main(String[]args)
+	{
+		Scanner in = new Scanner(System.in);
+		int sample = (int)(Math.random()*100+1);
+		int num,cnt = 1;
+		System.out.println("please input one number.");
+		num = in.nextInt();
+		while(true)
+		{
+			if(num==sample)
+			{
+				System.out.println("got it!,times: "+cnt);
+				break;
+			}
+			else
+			{
+				if(num<sample)
+				{
+					System.out.println("upper your input number!please input one number.");
+					cnt++;
+				}
+				else
+				{
+					System.out.println("lower your input number!please input one number.");
+					cnt++;
+				}
+			}
+			num = in.nextInt();
+			
+		}
+		
+	}
+	
+}
