@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class reverse 
+{
+	public static void main(String[]args)
+	{
+		Scanner in = new Scanner(System.in);
+		int a;
+		a = in.nextInt();
+		int mid = a;
+		while(mid!=0)
+		{
+			int digit = mid % 10;
+			System.out.print(digit);
+			mid/=10;
+		}
+		
+	}
+	
+}
