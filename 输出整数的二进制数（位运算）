@@ -1,0 +1,18 @@
+package ticket;
+
+import java.util.Scanner;
+//5 	0000 0101
+public class Auto 
+{
+	public static void main(String[]args)//输出255以内的整数的二进制编码
+	{
+		int n;
+		Scanner in = new Scanner(System.in);
+		n=in.nextInt();
+		for(int i=7;i>=0;i--)
+		{
+			System.out.print(n>>i&1);
+		}
+	}
+	
+}
