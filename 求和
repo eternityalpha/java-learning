@@ -1,0 +1,26 @@
+package java202126;
+
+import java.util.Scanner;
+
+public class java20210206 {
+
+	public static void main(String[]args)
+	{
+		Scanner in = new Scanner(System.in); 
+		int n=in.nextInt();
+		double result=0;
+		int ori;//****
+//		System.out.println(result);
+		for(int i=1;i<=n;i++)
+		{
+			ori=i;
+			if(i%2==0)
+				ori=-i;
+			result+=1.0/ori;
+		}
+		System.out.println(result);
+		System.out.printf("%.2f", result);//****
+		
+		
+	}
+}
