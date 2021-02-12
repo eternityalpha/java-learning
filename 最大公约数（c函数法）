@@ -1,0 +1,47 @@
+package java20210212;
+
+import java.util.Scanner;
+
+public class programexercise {
+
+	public static void main(String[]args)
+	{
+		Scanner in = new Scanner(System.in);
+		int a,b;
+		int gong;
+		System.out.println("please input two integers.");
+		a=in.nextInt();
+		b=in.nextInt();
+		if(a>b)
+		{
+			a=a^b;
+			b=a^b;
+			a=a^b;
+		}
+		//make a<b,namely the former < the latter
+		if(a==0||b==0)
+			gong=0;
+		//clearly
+		else
+		{
+			if(a%b==0)
+			{
+				gong=a;
+			}
+			else//return b==0?a:gcd(b,a%b);
+			{
+				int temp;
+				while(b!=0)
+				{
+					temp=a;
+					a=b;
+					b=temp%b;
+				}
+				gong=a;	
+			}
+		}
+		System.out.println(gong);
+	}
+	
+	
+}
