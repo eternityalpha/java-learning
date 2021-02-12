@@ -1,0 +1,46 @@
+package java20210212;
+
+import java.util.Scanner;
+
+public class programexercise {
+
+	public static void main(String[]args)
+	{
+		Scanner in = new Scanner(System.in);
+		int a,b;
+		System.out.println("please input two integers.");
+		a=in.nextInt();
+		b=in.nextInt();
+		//更相减损法
+		int gcd=1;
+		if(a>b)
+		{
+			a=a^b;
+			b=a^b;
+			a=a^b;
+		}
+		//the former < the latter
+		int minus;
+		do
+		{
+			minus=b-a;
+	//		System.out.println(minus);
+			if(minus>a)
+			{
+				b=minus;
+			}
+			else
+			{
+				b=a;
+				a=minus;
+			}
+		}
+		while(minus!=0);
+		if(gcd<b)
+			gcd=b;
+		System.out.println(gcd);
+		
+	}
+	
+	
+}
