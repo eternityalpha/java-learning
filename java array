@@ -1,0 +1,36 @@
+package javapractise;
+
+import java.util.Scanner;
+
+//array of java
+public class J0213 {
+
+	public static void main(String[]args)
+	{
+		Scanner in = new Scanner(System.in);
+		
+		int num;
+		num=in.nextInt();
+		
+		int[] arr = new int[num];//数组变量自动初始化为0
+		int[] a = {23,12,33,55};
+		double sum=0;
+		for(int i=0;i<num;i++)//有效长度，i<arr.length
+		{
+			arr[i]=in.nextInt();
+			sum+=arr[i];
+		}
+		//创建数组名（地址）,定义数组
+		double aver;
+		aver=sum/num;
+		for(int i=0;i<num;i++)
+		{
+			if(arr[i]>aver)
+				System.out.print(arr[i]+" ");
+		}
+		//编译不检查越界，运行时检查数组是否越界。
+		
+	}
+	
+	
+}
