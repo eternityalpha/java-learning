@@ -1,0 +1,91 @@
+package javapractise;
+
+import java.util.Scanner;
+
+//array of java
+public class J0213 {
+
+	public static void main(String[]args)
+	{
+		Scanner in = new Scanner(System.in);
+		int x=in.nextInt();//默认x>=2
+		int isPrime=1;
+//		for(int i=2;i<=Math.sqrt(x);i++)
+//		{
+//			if(x%i==0)
+//				isPrime=0;
+//		}//2,3循环不会执行，仍为素数
+		//法一
+//		if(x==2)
+//			isPrime=1;
+//		else if(x%2==0)
+//			isPrime=0;
+//		else//奇数
+//		{
+//			for(int i=3;i<=Math.sqrt(x);i+=2)//奇数=奇数*奇数
+//			{
+//				if(x%i==0)
+//					isPrime=0;
+//			}
+//			
+//		}
+//		System.out.println(isPrime);
+		//法二，偶数（除2之外）都为合数，奇数除以小于此数的奇数即可
+		
+//		int[] prime = new int[100];//构造素数表,小于x的所有素数
+//		prime[0]=2;
+//		int cnt=1;
+//		Mainloop:
+//		for(int i=2;i<=x;i++)
+//		{
+//			for(int j=0;j<cnt;j++)
+//			{
+//				if(i%prime[j]==0)
+//				{
+//					continue Mainloop;
+//				}
+//			}
+//			prime[cnt++]=i;//****,该数没有被跳过才被输入prime数组
+//		}
+//		for(int i=0;i<cnt;i++)
+//		{
+//			System.out.print(prime[i]+" ");
+//		}
+//		for(int i=0;i<cnt;i++)
+//			if(x%i==0)
+//				isPrime=0;
+//		//法三，构造小于输入数据的素数表,然后用该数除以小于该数的所有素数。
+		boolean[] prime = new boolean[x];//自动赋值为0，即false
+		for(int i=0;i<x;i++)
+			prime[i]=true;
+		prime[2]=true;
+		prime[0]=false;
+		prime[1]=false;
+		for(int i=2;i<x;i++)
+		{
+			if(prime[i]==false)
+			{
+				continue;
+			}
+			else
+			{
+				for(int j=2;j*i<x;j++)
+				{
+					prime[j*i]=false;
+				}
+			}
+		}
+
+		int[] prime1 = new int[100];
+		int cnt=0;
+		for(int i=0;i<x;i++)
+		{
+			if(prime[i]==true)
+				prime1[cnt++]=i;
+		}
+		for(int i=0;i<cnt;i++)
+			System.out.print(prime1[i]+" ");
+		//法四，boolean数组，排除素数的倍数。
+	}
+	
+}
