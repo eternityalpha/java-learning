@@ -1,0 +1,15 @@
+package java20210306;
+
+
+public class java20210306 {
+
+	public static void main(String[]args)//包裹类型，Boolean,Character,Double,Integer
+	{
+		System.out.println(Character.isDigit('0'));//true
+		System.out.println(Character.isLowerCase('i'));//true
+		System.out.println(Character.toLowerCase('I'));//大小写转换
+		System.out.println(Integer.MAX_VALUE);
+		
+		
+	}
+}
