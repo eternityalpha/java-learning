@@ -1,0 +1,29 @@
+package java20210306;
+
+import java.util.Scanner;
+
+public class java20210306 {
+
+	public static void main(String[]args)
+	{	
+		String s = new String("hello ");//字符串初始化
+		String s1 = "world";
+		
+		
+		System.out.println(s+s1+1+2);//hello world12****
+		System.out.println(1+2+s1);//3world***
+		
+		
+		Scanner in = new Scanner(System.in);
+		String s2,s3;		
+		s2=in.next();//字符串输入;  空格、\t、\n结束
+		s3=in.nextLine();//输入整行
+		System.out.println(s2);
+		System.out.println(s3);
+		
+		
+		//s2==s3,s2,s3是否指向同一字符串（类似数组）。
+		System.out.println(s2.equals("hello"));//字符串是否是“hello”;
+	}
+	
+}
