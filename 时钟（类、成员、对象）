@@ -1,0 +1,50 @@
+package java20210307;//包名（项目名）
+
+public class Display {//Display为类名（.class的文件名），一个类中只有一个main函数
+
+	private int hour=0;
+	private int minute=0;
+	private int limit=0;
+	private int limit2=0;//成员变量
+	
+	public Display(int limit,int limit2)
+	{
+		this.limit=limit;
+		this.limit2=limit2;
+	}//对类自身成员变量赋值******,定义对象时输入参数（main函数内）
+	
+	public void Increase()
+	{
+		minute++;
+		
+		if(minute==limit2)
+		{
+			minute=0;
+			hour++;
+		}
+		if(hour==limit)
+			hour=0;
+		
+	}//成员方法
+	
+	public int Gethour()
+	{
+		return hour;
+	}
+	public int Getminute()
+	{
+		return minute;
+	}
+	
+	public static void main(String[]args)
+	{
+		Display d = new Display(24,60);//只会到23，59；d为对象名
+		while(true)
+		{
+			d.Increase();
+			System.out.println(d.Gethour()+":"+d.Getminute());
+		}
+		
+	}
+	
+}//只有一个类，因为要创建。
