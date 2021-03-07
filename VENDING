@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Vendingmachine {
+
+	private int price;//数据的封装
+	private int balance;//余额
+	private int total=0;
+	
+	public Vendingmachine(int money,int price)
+	{
+		this.balance=money;
+		this.price=price;
+	}//余额
+	
+	public void Operate()
+	{
+		if(balance>price)
+		{
+			total+=price;
+			balance-=price;
+		}
+	}
+	public int Prompt()
+	{
+		return balance;
+	}
+	
+	public static void main(String[]args)
+	{
+		System.out.println("请输入金额+价格");
+		Scanner in = new Scanner(System.in); 
+		int money=in.nextInt();
+		int price=in.nextInt();
+		
+		Vendingmachine sell1 = new Vendingmachine(money,price);
+		
+		if(money<price)
+			System.out.println("not enough");
+		else
+		{
+			sell1.Operate();
+			System.out.println("@#@,余额："+sell1.Prompt());
+		}
+	}
+}
