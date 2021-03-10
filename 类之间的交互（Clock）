@@ -1,0 +1,58 @@
+package clock;
+
+public class Display {
+
+	private int limit=0;
+	int time=0;
+	
+	Display(int limit)
+	{
+		this.limit=limit;
+	}
+	public void Increase()
+	{
+		time++;
+		if(time==limit)
+			time=0;		
+	}
+	
+	public int Gettime()
+	{
+		return time;
+	}
+	public static void main(String[]args)
+	{
+		Display d = new Display(60);
+		d.Increase();
+		System.out.println(d.Gettime());
+	}
+	
+}//创建Display类
+
+package clock;
+
+public class clock {
+
+	private Display hour = new Display(24);//0~23
+	private Display minute = new Display(60);//0~60,创建对象要使用new；
+	
+	void Start()
+	{
+		while(true)
+		{
+			minute.Increase();;//不能用minute.time++,此时会跳过Display的limit限制。
+			if(minute.time==0)
+			{
+				hour.Increase();;//不能用hour.time++,此时会跳过Display的limit限制。
+			}
+			System.out.printf("%02d:%02d\n",hour.Gettime(),minute.Gettime());
+		}
+		
+	}
+	public static void main(String[]args)
+	{
+		clock Clock = new clock();
+		Clock.Start();
+	}
+}//创建Clock类，两个类可以都有main函数，但只能对一个（clock）进行运行。
+
