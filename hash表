@@ -1,0 +1,42 @@
+package SystemOut;
+
+import java.util.HashMap;
+
+public class Out {
+
+	private HashMap<Integer,String> coin = new HashMap<Integer,String>();
+	
+	public Out()
+	{
+		coin.put(1, "penny");
+		coin.put(10,"dime");
+		coin.put(25,"quarter");
+		coin.put(50,"half-dollar");
+		coin.put(50,"五毛");
+		System.out.println(coin.keySet().size());
+		System.out.println(coin);//1
+		System.out.println(coin.toString());//2，一、二等价。
+		
+		for(int k:coin.keySet())
+		{
+			String s = new String();
+			s=coin.get(k);
+			System.out.println(s);
+		}//遍历hash表
+	}
+	public String get(int amount)
+	{
+		if(coin.containsKey(amount))
+			return coin.get(amount);
+		else
+			return "Not Found";
+	}
+	
+	public static void main(String[]args)
+	{
+		Out a = new Out();
+		System.out.println(a.get(25));
+		System.out.println(a.get(27));
+		
+	}
+}
