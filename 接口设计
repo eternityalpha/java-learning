@@ -1,0 +1,61 @@
+package notebook;
+
+import java.util.ArrayList;
+
+//笔记本应有的功能，
+//再根据这些功能构造函数框架（成员函数），再具体设计每一个函数
+//存储记录（不限制数量）
+//知道存了多少条记录
+//查看具体某一条记录
+//删除某一条记录
+//查看所有记录
+public class note {
+	
+	private ArrayList<String> notes = new ArrayList<String>();
+	//容器类中存放的对象有顺序，根据存放的数据先后（可以一直存）
+	public void Add(String s)
+	{
+		notes.add(s);
+	}
+	public void Adds(String s,int order)
+	{
+		notes.add(order, s);
+	}//插入，将原元素后推,
+	//原来的容器类对象的id=0为first，id=1为second；
+	//notes.add(1,"third");
+	//则：id=0为first，id=1为third，id=2为second，后推。
+	public int getSize()
+	{
+		return notes.size();
+	}
+	//java类库的函数要更高效，尽量使用类库函数（）。
+	public String getNote(int index)
+	{
+		return notes.get(index);
+	}
+	
+	public void removeNote(int index)
+	{
+		notes.remove(index);	
+	}
+	public String[] list()
+	{
+		String[] s = new String[notes.size()];
+		notes.toArray(s);
+		return s;
+	}
+	//new创建一个字符串数组,可以直接return new String[10];
+	//String[] s = new String[10];
+	//return s;
+	
+	public static void main(String[]args)
+	{
+		note nb = new note();
+		nb.Add("first");
+		nb.Add("second");
+		nb.Add("third");
+		nb.removeNote(1);
+		System.out.println(nb.getNote(1));//编译不检查越界，运行时检查。
+		
+	}
+}//P65.
