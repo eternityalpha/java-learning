@@ -1,0 +1,20 @@
+class Solution {
+    public int removeElement(int[] nums, int val) {
+
+        int cnt = -1;//*****
+        
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i]!=val)
+            {
+                cnt++;//移除后元素多少
+                nums[cnt] = nums[i];//移除过程
+
+            }
+
+        }
+
+        return cnt+1;
+
+    }
+}
